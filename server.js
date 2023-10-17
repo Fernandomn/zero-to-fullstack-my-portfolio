@@ -11,10 +11,6 @@ app.get("/", (req, res) => {
   res.json({ success: true });
 });
 
-app.get("/test", (req, res) => {
-  res.send("funciona!");
-});
-
 app.use("/api", api);
 
 const PORT = process.env.PORT;
