@@ -36,6 +36,18 @@ router.get("/:slug", async (req, res) => {
 });
 
 // UPDATE
+router.patch("/:slug", async (req, res) => {
+  try {
+    const updatedPortfolio = await Portfolio.updateOne(
+      { slug: req.params.slug },
+      { title: req.body.title, description: req.body.description }
+    );
+
+    res.json({ success: true, data: updatedPortfolio });
+  } catch (err) {
+    res.json({ success: false, message: err });
+  }
+});
 
 // DELETE
 
