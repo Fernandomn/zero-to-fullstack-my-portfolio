@@ -1,6 +1,14 @@
 import React from "react";
-import { About, Description, Image } from "../styles";
 import styled from "styled-components";
+import { About, Description, Image } from "../styles";
+
+import { faGithubSquare } from "@fortawesome/free-brands-svg-icons";
+import {
+  faGraduationCap,
+  faImages,
+  faLaptopCode,
+} from "@fortawesome/free-solid-svg-icons";
+import Card from "./Card";
 
 const ServicesSection = () => {
   // const imgUrl =
@@ -8,6 +16,35 @@ const ServicesSection = () => {
   // const imgUrl = "./../../assets/services.webp";
   const imgUrl =
     "https://internt.slu.se/globalassets/mw/stod-serv/campus-och-hus/services.jpg?width=480&height=480&mode=crop&upscale=false&format=webp";
+
+  const renderDescriptionCardsList = () => {
+    const cardsInfo = [
+      {
+        title: "Portfolio",
+        text: "Check my work on my portfolio",
+        icon: faLaptopCode,
+      },
+      {
+        title: "Courses",
+        text: "Check my work on my portfolio",
+        icon: faGraduationCap,
+      },
+      {
+        title: "Hobbies",
+        text: "Check my work on my portfolio",
+        icon: faImages,
+      },
+      {
+        title: "Github",
+        text: "Check my work on my portfolio",
+        icon: faGithubSquare,
+      },
+    ];
+
+    return cardsInfo.map((card) => (
+      <Card title={card.title} text={card.text} icon={card.icon} />
+    ));
+  };
 
   return (
     <Services>
@@ -17,39 +54,7 @@ const ServicesSection = () => {
 
       <ServiceDescription>
         <h2>Things I do</h2>
-        <Cards>
-          <Card>
-            <div className="icon">
-              Icone
-              <h3>Portfolio</h3>
-            </div>
-            <p>Check my work on my portfolio</p>
-          </Card>
-
-          <Card>
-            <div className="icon">
-              Icone
-              <h3>Courses</h3>
-            </div>
-            <p>Check my work on my portfolio</p>
-          </Card>
-
-          <Card>
-            <div className="icon">
-              Icone
-              <h3>Hobbies</h3>
-            </div>
-            <p>Check my work on my portfolio</p>
-          </Card>
-
-          <Card>
-            <div className="icon">
-              Icone
-              <h3>GitHub</h3>
-            </div>
-            <p>Check my work on my portfolio</p>
-          </Card>
-        </Cards>
+        <Cards>{renderDescriptionCardsList()}</Cards>
       </ServiceDescription>
     </Services>
   );
@@ -73,21 +78,6 @@ const Cards = styled.div`
   display: flex;
   flex-wrap: wrap;
   padding: 1rem;
-`;
-
-const Card = styled.div`
-  padding: 0.5rem;
-  flex-basis: 20rem;
-  .icon {
-    display: flex;
-    align-items: center;
-  }
-  h3 {
-    margin-left: 1rem;
-    background-color: white;
-    color: black;
-    padding: 1rem;
-  }
 `;
 
 export default ServicesSection;
