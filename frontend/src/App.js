@@ -1,12 +1,20 @@
 import React from "react";
-import AboutUs from "./pages/AboutUs";
+
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import GlobalStyle from "./components/GlobalStyle";
+import AboutUs from "./pages/AboutUs";
+import Portfolio from "./pages/Portfolio";
 
 function App() {
   return (
     <div>
       <GlobalStyle />
-      <AboutUs />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<AboutUs />} />
+          <Route path="/portfolio" element={<Portfolio />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

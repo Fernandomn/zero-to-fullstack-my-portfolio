@@ -41,8 +41,8 @@ const ServicesSection = () => {
       },
     ];
 
-    return cardsInfo.map((card) => (
-      <Card title={card.title} text={card.text} icon={card.icon} />
+    return cardsInfo.map((card, index) => (
+      <Card title={card.title} text={card.text} icon={card.icon} key={index} />
     ));
   };
 
