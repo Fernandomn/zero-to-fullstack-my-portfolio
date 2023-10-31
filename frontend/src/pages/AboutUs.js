@@ -5,7 +5,6 @@ import ServiceSection from "../components/ServicesSection";
 const AboutUs = () => {
   return (
     <>
-      <div>About us</div>
       <AboutSection />
       <ServiceSection />
     </>
