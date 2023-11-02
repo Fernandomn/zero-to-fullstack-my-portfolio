@@ -1,6 +1,6 @@
 import React from "react";
 
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import GlobalStyle from "./components/GlobalStyle";
 import Nav from "./components/Nav";
 import AboutUs from "./pages/AboutUs";
@@ -12,13 +12,11 @@ function App() {
     <div>
       <GlobalStyle />
       <Nav />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<AboutUs />} />
-          <Route path="/portfolio" element={<Portfolio />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-      </BrowserRouter>
+      <Routes>
+        <Route path="/" element={<AboutUs />} />
+        <Route path="/portfolio" element={<Portfolio />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
     </div>
   );
 }
