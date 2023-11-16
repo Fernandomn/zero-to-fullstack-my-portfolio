@@ -8,7 +8,7 @@
     "frontend": "npm start --prefix frontend",
     "dev": "concurrently \"npm run backend \" \"npm run frontend\" ",
     "start": "node server.js",
-    "vercel-build": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build -- frontend"
+    "vercel-build": "NPM_CONFIG_PRODUCTION=false npm install --only=production --prefix frontend && npm run build -- frontend"
   },
   "keywords": [
     "MERN",
