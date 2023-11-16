@@ -1,5 +1,7 @@
 import React from "react";
 
+import styled from "styled-components";
+
 const Contact = () => {
   const socialList = [
     {
@@ -25,17 +27,20 @@ const Contact = () => {
   ];
   const renderSocialList = () => {
     return socialList.map((social) => (
-      <div className="social" key={social.id}>
+      <SocialStyled key={social.id} href={social.url} target="_blank">
         {social.icon}
         <h3>{social.title}</h3>
-      </div>
+      </SocialStyled>
     ));
   };
 
   return (
-    <div>
-      <div>Get in touch</div>
-      <div id="areas">
+    <ContactStyled>
+      <TitleStyled>
+        <h2>Get in touch</h2>
+      </TitleStyled>
+
+      <AreasStyled>
         <div id="form">
           <form id="contact-form" method="post">
             Name: <input type="text" />
@@ -44,12 +49,49 @@ const Contact = () => {
             <button type="submit">Submit</button>
           </form>
         </div>
-        <div id="networks">
+
+        <NetworksStyled>
           <div id="social">{renderSocialList()}</div>
-        </div>
-      </div>
-    </div>
+        </NetworksStyled>
+      </AreasStyled>
+    </ContactStyled>
   );
 };
+
+const ContactStyled = styled.div`
+  padding: 1rem 10rem;
+  color: #353535;
+  min-height: 90vh;
+`;
+
+const TitleStyled = styled.div`
+  margin-bottom: 4rem;
+  h2 {
+    color: white;
+  }
+`;
+
+const AreasStyled = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const NetworksStyled = styled.div`
+  padding: 1rem 5rem;
+`;
+
+const SocialStyled = styled.a`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 15px 50px;
+  padding-left: 2rem;
+  text-decoration: none;
+
+  &:hover {
+    cursor: pointer;
+  }
+`;
 
 export default Contact;
